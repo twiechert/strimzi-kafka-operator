@@ -1,0 +1,26 @@
+name: Publish image
+on:
+  push:
+    branches:
+      - main
+      - feature/arm64
+jobs:
+  build-images:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: crazy-max/ghaction-docker-buildx@v1
+        with:
+          version: latest
+      - name: Login to GitHub Package Registry
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository }} --password-stdin
+      - name: Build arm binary
+        if: success()
+        run: |
+          export DOCKER_BUILD_ARGS="--platform linux/arm64 --load"
+          export DOCKER_BUILDX=buildx
+          export DOCKER_ORG=${{ steps.repo-lowercase.outputs.lowercase }}
+          export DOCKER_REGISTRY="ghcr.io"
+          make docker_build
+
