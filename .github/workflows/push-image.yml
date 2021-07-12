@@ -42,5 +42,5 @@ jobs:
           export DOCKER_BUILDX=buildx
           export DOCKER_ORG=${{ steps.repo-lowercase.outputs.lowercase }}
           export DOCKER_REGISTRY="ghcr.io"
-          make docker_build
+          MVN_ARGS=-DskipTests make docker_build
 
