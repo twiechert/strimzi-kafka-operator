@@ -15,6 +15,11 @@ jobs:
           version: latest
       - name: Login to GitHub Package Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository }} --password-stdin
+      - name: Install tooling
+          run: |
+            curl -L https://github.com/mikefarah/yq/releases/download/v4.2.1/yq_linux_amd64 > yq && chmod +x yq
+            sudo cp -v yq /usr/bin/
+            apt-get install -y shellcheck
       - name: Build arm binary
         if: success()
         run: |
