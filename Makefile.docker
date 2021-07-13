@@ -24,6 +24,7 @@ docker_build_default:
 #   including the kafka version number. This BUILD_TAG is used by the docker_tag target.
 	# Also tag with $(BUILD_TAG)
 	$(DOCKER_CMD) tag strimzi/$(PROJECT_NAME):latest strimzi/$(PROJECT_NAME):$(BUILD_TAG)
+	$(DOCKER_CMD) tag strimzi/$(PROJECT_NAME):$(BUILD_TAG) $(DOCKER_REGISTRY)/$(DOCKER_ORG)/$(PROJECT_NAME):$(DOCKER_TAG)
 	docker images
 
 docker_tag_default:
