@@ -8,6 +8,10 @@ jobs:
   build-images:
     runs-on: ubuntu-18.04
     steps:
+      - id: repo-lowercase
+        uses: ASzc/change-string-case-action@v1
+        with:
+          string: ${{ github.repository }}
       - uses: actions/checkout@v2
       - name: Set up Docker Buildx
         uses: crazy-max/ghaction-docker-buildx@v1
