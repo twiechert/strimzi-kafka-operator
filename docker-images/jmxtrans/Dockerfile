@@ -1,4 +1,4 @@
-FROM strimzi/base:latest
+FROM strimzi/base:arm-64
 
 ENV JMXTRANS_HOME /usr/share/jmxtrans
 ENV PATH $JMXTRANS_HOME/bin:$PATH

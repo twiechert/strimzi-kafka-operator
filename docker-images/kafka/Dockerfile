@@ -1,4 +1,4 @@
-FROM strimzi/base:latest
+FROM strimzi/base:arm-64
 
 ARG KAFKA_DIST_DIR
 ARG KAFKA_VERSION

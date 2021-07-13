@@ -1,4 +1,4 @@
-FROM strimzi/base:latest
+FROM strimzi/base:arm-64
 
 # Add strimzi user with UID 1001
 # The user is in the group 0 to have access to the mounted volumes and storage
@@ -8,7 +8,7 @@ ARG strimzi_version=1.0-SNAPSHOT
 ENV STRIMZI_VERSION ${strimzi_version}
 ENV STRIMZI_HOME=/opt/strimzi
 RUN mkdir -p ${STRIMZI_HOME}/bin
-WORKDIR ${STRIMZI_HOME}
+WORKDIR ${STRIMZsI_HOME}
 
 COPY scripts/ tmp/bin/ bin/
 

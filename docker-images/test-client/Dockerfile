@@ -1,4 +1,4 @@
-FROM strimzi/kafka:latest
+FROM strimzi/kafka:arm-64
 
 ENV JAVA_OPTS "-DLOG_LEVEL=info"
 
