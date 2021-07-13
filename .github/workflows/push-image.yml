@@ -38,7 +38,7 @@ jobs:
       - name: Build arm binary
         if: success()
         run: |
-          export DOCKER_BUILD_ARGS="--platform linux/arm64 --load"
+          export DOCKER_BUILD_ARGS="--platform linux/arm64 --cache-to=type=inline  --load"
           export DOCKER_BUILDX=buildx
           export DOCKER_ORG=${{ steps.repo-lowercase.outputs.lowercase }}
           export DOCKER_REGISTRY="ghcr.io"
