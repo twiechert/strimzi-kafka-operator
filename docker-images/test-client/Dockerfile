@@ -1,4 +1,4 @@
-FROM strimzi/kafka:arm-64
+FROM ghcr.io/twiechert/strimzi-kafka-operator/strimzi/base:arm-64
 
 ENV JAVA_OPTS "-DLOG_LEVEL=info"
 

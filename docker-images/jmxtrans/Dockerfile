@@ -1,4 +1,4 @@
-FROM strimzi/base:arm-64
+FROM ghcr.io/twiechert/strimzi-kafka-operator/strimzi/base:arm-64
 
 ENV JMXTRANS_HOME /usr/share/jmxtrans
 ENV PATH $JMXTRANS_HOME/bin:$PATH
