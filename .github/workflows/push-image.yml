@@ -42,9 +42,5 @@ jobs:
       - name: Build arm binary
         if: success()
         run: |
-          export DOCKER_BUILD_ARGS="--platform linux/arm64 --cache-to=type=inline  --load"
-          export DOCKER_BUILDX=buildx
-          export DOCKER_ORG=${{ steps.repo-lowercase.outputs.lowercase }}
-          export DOCKER_REGISTRY="ghcr.io"
-          DOCKER_TAG=arm-64 MVN_ARGS=-DskipTests make docker_build
+          DOCKER_REGISTRY="ghcr.io" DOCKER_ORG=${{ steps.repo-lowercase.outputs.lowercase }} DOCKER_BUILDX=buildx DOCKER_BUILD_ARGS="--platform linux/arm64 --cache-to=type=inline  --load" DOCKER_TAG=arm-64 MVN_ARGS=-DskipTests make docker_build
 
