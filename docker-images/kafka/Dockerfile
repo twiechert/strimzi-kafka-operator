@@ -1,4 +1,4 @@
-FROM ghcr.io/twiechert/strimzi-kafka-operator/strimzi/base:arm-64
+FROM ghcr.io/twiechert/strimzi-kafka-operator/base:arm-64
 
 ARG KAFKA_DIST_DIR
 ARG KAFKA_VERSION

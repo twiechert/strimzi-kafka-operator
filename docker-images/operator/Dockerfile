@@ -1,5 +1,4 @@
-FROM ghcr.io/twiechert/strimzi-kafka-operator/strimzi/base:arm-64
-
+FROM ghcr.io/twiechert/strimzi-kafka-operator/base:arm-64
 # Add strimzi user with UID 1001
 # The user is in the group 0 to have access to the mounted volumes and storage
 RUN useradd -r -m -u 1001 -g 0 strimzi
